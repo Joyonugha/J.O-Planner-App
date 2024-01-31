@@ -2,7 +2,7 @@
 $(document).ready(function () {
     //listen for save button clicks
 $('.saveBtn').on('click', function () {
-    var value = $(this).siblings('description').val();
+    var value = $(this).siblings('.description').val();
     var time = $(this).parent().attr('id');
 
     //saves in the localStorage (Ref: As shown in class)
@@ -13,7 +13,7 @@ $('.saveBtn').on('click', function () {
 
     //Timeout to remove 'show' class after 5 seconds
     setTimeout(function () {
-        $('notification').removeClass('show');
+        $('.notification').removeClass('show');
     }, 5000);
 })
 });
@@ -28,7 +28,7 @@ currentDay()
 function renderColors() {
     var currentHour = dayjs().hour();
     // $("#hour-9").addClass("present");
-    
+
 function colorConsoleLog(msg, color) {
     console.log("%c" + msg, "color:" + color + ";font-size:large;");
 }
@@ -84,3 +84,9 @@ $('#hour-17 .description').val(localStorage.getItem('hour-17'));
 //Displays current day on page
 $('#currentDay').text(dayjs().format('dddd, MMMM DD'));
 
+
+//(For loading data to local storage)
+// //or $('.time-block .description').each(function () {
+//     var timeId = $(this).closest('.time-block').attr('id');
+//     $(this).val(localStorage.getItem(timeId));
+// });
